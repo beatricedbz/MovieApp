@@ -6,7 +6,6 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.movieapp.databinding.ActivityMainBinding
-import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
