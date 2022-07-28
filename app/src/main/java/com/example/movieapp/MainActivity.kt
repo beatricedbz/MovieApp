@@ -4,14 +4,16 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
-    lateinit var adapter: MovieAdapter
+    private lateinit var binding: ActivityMainBinding
+    private val adapter: MovieAdapter = MovieAdapter {
+        viewModel.getAllMovies()
+    }
     private val viewModel: MovieViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,14 +27,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecycler() {
-        adapter = MovieAdapter()
-        binding.rvMovies.layoutManager = GridLayoutManager(this, 1)
+        binding.rvMovies.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvMovies.adapter = adapter
     }
 
     private fun observeMovies() {
         viewModel.recyclerListData.observe(this) {
-            adapter.fillMovies(it.results)
+            adapter.submitList(it)
         }
     }
 }

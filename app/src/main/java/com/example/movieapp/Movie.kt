@@ -1,11 +1,22 @@
 package com.example.movieapp
 
-data class MovieList(val results: List<Movie>)
+import com.google.gson.annotations.SerializedName
 
-data class MovieImage(val src: String)
+data class MovieList(
+    @SerializedName("has_more")
+    val hasMore: Boolean,
+    val results: List<Movie>
+)
+
+data class MovieImage(
+    @SerializedName("src")
+    val imageUrl: String
+)
 
 data class Movie(
-    val display_title: String,
-    val summary_short: String,
+    @SerializedName("display_title")
+    val displayTitle: String,
+    @SerializedName("summary_short")
+    val summaryShort: String,
     val multimedia: MovieImage,
 )
