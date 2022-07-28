@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.data
 
 import retrofit2.http.GET
 

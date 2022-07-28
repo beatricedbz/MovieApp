@@ -1,8 +1,10 @@
-package com.example.movieapp
+package com.example.movieapp.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.movieapp.data.MovieApi
+import com.example.movieapp.data.MovieList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

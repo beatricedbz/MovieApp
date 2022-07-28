@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.presentation
 
 import android.os.Bundle
 import androidx.activity.viewModels
