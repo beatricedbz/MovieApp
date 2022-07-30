@@ -1,7 +1,7 @@
 package com.example.movieapp.di
 
-import com.example.movieapp.GetMovieUseCase
-import com.example.movieapp.MovieApi
+import com.example.movieapp.domain.GetMovieUseCase
+import com.example.movieapp.data.MovieApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,5 +1,7 @@
-package com.example.movieapp
+package com.example.movieapp.domain
 
+import com.example.movieapp.data.Movie
+import com.example.movieapp.data.MovieApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 
