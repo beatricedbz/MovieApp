@@ -1,7 +1,7 @@
 package com.example.movieapp.presentation
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.movieapp.data.MovieApi
 import com.example.movieapp.data.MovieList
@@ -11,23 +11,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieViewModel @Inject constructor(
-    private val movieApi: MovieApi
+    private val getMovieUseCase: GetMovieUseCase
 ) : ViewModel() {
-    val recyclerListData = MutableLiveData<MovieList>()
-    val errorMessage = MutableLiveData<String>()
+    val recyclerListData = getMovieUseCase.movies.asLiveData()
 
     init {
         getAllMovies()
     }
 
-    private fun getAllMovies() {
+    fun getAllMovies() {
         viewModelScope.launch {
-            try {
-                val movieApi = movieApi.getMovies()
-                recyclerListData.postValue(movieApi)
-            } catch (e: Exception) {
-                errorMessage.postValue(e.message)
-            }
+            getMovieUseCase.getMovies()
         }
     }
 }
