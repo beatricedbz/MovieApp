@@ -2,7 +2,7 @@
 Клиент-серверное приложение списка фильмов.
 ### Используемые технологии:
 - MVVM
-- LiveData
+- StateFlow
 - Retrofit
 - Glide
 - Kotlin Coroutines
